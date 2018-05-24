@@ -1,0 +1,296 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="../css/w3.css">
+		<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Anonymous+Pro" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="html.css">
+		<link type="text/css" rel="stylesheet" href="../css/css/fontawesome-all.css">
+		<link type="text/css" rel="stylesheet" href="../css/animate.css">
+		<link rel="icon" href="../images/coding.png" type="image/png" sizes="16x16">
+		<title>How to HTML - HTML Learning</title>
+	</head>
+	<body>
+		
+		<ul id="navbar">
+			<li><a class="logo" href="../index.html"><img src="../images/coding.png" id="logo" alt="Logo"></a></li>
+			<li><a href="../index.html">Home</a></li>
+			<li><a class="active" href="#">HTML</a></li>
+			<li><a href="../css_page/css.html">CSS</a></li>
+			<li><a href="../challenge_page/challenge.html">Challenge</a></li>
+			<li><a href="../creationPad_page/creationPad.html">Creation Pad</a></li>
+		</ul>
+
+		<div id="introLabel">
+			<h1 id="introtext">Learning HTML</h1>
+		</div>
+		<script src="slideUp.js"></script>
+		<button class="fas fa-angle-down animated infinite pulse" id="down-arrow" onclick="slideUp()"></button>	
+		
+				
+<!-- My slideshow-->
+		<div class="slideshow">
+			<div class="slideshow-container">
+				<div class="htmlInfo fade" id="slide1">
+					<h1 id="title">Learning some HTML!</h1>
+				</div>
+
+				<div class="htmlInfo fade" id="slide2">
+					<h2 id="CYFWTitle">Creating Your First Webpage</h2>
+				</div>
+
+				<div class="htmlInfo fade" id="slide3">
+					<div id="CYFWinfo">
+						<p>Now, to get a good hand at HTML, what better way is there than to make your own website using HTML coding! Use the editor on the right hand side to get started.<br><br>Start by entering the <code>&lt;html&gt;</code> tag at the beginning of the document. This essentially tells the browser that the this file is an HTML file. Although, in some respects this tag is becoming obsolete, it is always good practice to include it. On the next line add two spaces and the <code>&lt;body&gt;</code> tag. The two spaces are to have 'whitespacing'; an element of HTML that makes code easier to read and understand, whereas the the body tag is to tell the browser that the upcoming code is to be displayed in the 'body' of the page. Line 3: Add 4 spaces (for whitespacing) and then the code <code>&lt;h1&gt;HELLO WORLD!&lt;/h1&gt;</code>. This code tells the browser to show the text "HELLO WORLD!" in the form of a primary heading, hence the name H1 or Heading 1. Now, you are probably wondering what the second <code>&lt;h1&gt;</code> tag is with the forward slash in front is. This tag, <code>&lt;/h1&gt;</code>, signifies the end of an 'element'; like the fullstop at the end of a sentence. Now, to wrap-up your webpage all you need to do is, on the next line, add 2 spaces and <code>&lt;/body&gt;</code>, and on the final line: <code>&lt;/html&gt;</code>.<br><br>And, voila! Take a look at your very first HTML webpage! Once your done, you can have a fiddle around with the code, to modify it!</p>
+					</div>
+					<div class="htmleditor">
+						<div class="w3-border outline">
+							<div class="w3-bar w3-border-bottom w3-light-grey intronav myButtons">
+								<button class="w3-bar-item w3-button tablink w3-red" onclick="openTab(event, 'thtml')">HTML</button>
+								<button class="w3-bar-item w3-button tablink" onclick="openTab(event, 'tcss')">CSS</button>
+								<button class="w3-bar-item w3-button tablink" onclick="openTab(event, 'toutput')">Preview</button>
+							</div>
+							<div class="myTabs">
+								<div class="editor" id="thtml">
+									<div id="html" class="content" contenteditable="true" data-text="&lt;!--Start typing your HTML code here!--&gt;"></div>
+								</div>
+								<div class="editor" id="tcss" style="display: none">
+									<div id="css" class="content" contenteditable="true" data-text="/*Start typing your CSS code here!*/"></div>
+								</div>
+								<div class="editor" id="toutput" style="display: none">
+									<iframe id="output"></iframe>
+								</div>
+							</div>
+						</div>
+					</div>
+					<script>
+						function openTab(evt, tabName) {
+							var i, x, tablinks;
+
+							x = document.getElementsByClassName("editor");
+							for (i = 0; i < x.length; i++) {
+								x[i].style.display = "none";
+							}
+
+							tablinks = document.getElementsByClassName("tablink");
+							for (i = 0; i < x.length; i++) {
+								tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+							}
+
+							document.getElementById(tabName).style.display = "block";
+							evt.currentTarget.className += " w3-red";
+						}
+
+						window.onload = function () {
+							var html = document.getElementById("html"),
+								css = document.getElementById("css"),
+								output = document.getElementById("output"),
+								working = false,
+								fill = function () {
+									if (working) {
+										return false;
+									}
+									working = true;
+									var document = output.contentDocument,
+										style = document.createElement("style");
+									document.body.innerHTML = html.textContent;
+									style.innerHTML = css.textContent.replace(/\s/g, "");
+									document.body.appendChild(style);
+									working = false;
+								};
+							html.onkeyup = fill;
+							css.onkeyup = fill;
+						}
+					</script>
+				</div>
+				
+				<div class="htmlInfo fade" id="slide4">
+					<h1 id="CHTtitle">Common HTML Tags</h1>
+				</div>
+				
+				<div class="htmlInfo fade" id="slide5">
+					<h3 id="CHToverview">We have already learnt about some key important HTML tags, however, here are some tags that will prove to be useful in your HTML coding endeavours.<br>But first, lets step through the anatomy of an element!</h3>
+				</div>
+				
+				<div class="htmlInfo fade" id="slide6">
+				</div>
+				
+				<div class="htmlInfo fade" id="slide7">
+					<div class="tags">
+						<h1 class="tag">&lt;head&gt;</h1>
+						<h4 class="tagInfo"><br>This tag, the 'head' tag, represents everything that the reader cannot see, for example links to fonts and CSS files, also known as stylesheets, titles, and the favicon (the icon you see on the tab of a website). It can also contain the <code>&lt;meta&gt;</code> tag; a tag which delivers metadata. In simple terms, the <code>&lt;meta&gt;</code> tag can tell the browser and user information about the website; keywords, a description, author, or <a href="https://www.w3schools.com/tags/tag_meta.asp" title="An explanation of metadata by w3schools">many other attributes</a> of the website.</h4>
+					</div>
+					<pre class="pre-scrollable">&lt;html&gt;<br>&nbsp;&nbsp;&lt;head&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;EXAMPLE&lt;/title&gt;<br>&nbsp;&nbsp;&lt;/head&gt;<br>&lt;html&gt;</pre>
+				</div>
+				
+				<div class="htmlInfo fade" id="slide8">
+					<div class="tags">
+						<h1 class="tag">&lt;body&gt;</h1>
+						<h4 class="tagInfo"><br>The body, essentially, is a tag that encompasses everything within the website that the viewer can read or see. This can include paragraphs, media, tables, lists, and lots of other web elements. These can be explored online, as there are simply too many to list!</h4>
+					</div>
+					<pre class="pre-scrollable">&lt;html&gt;<br>&nbsp;&nbsp;&lt;head&gt;...&lt;/head&gt;<br>&nbsp;&nbsp;&lt;body&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;...&lt;/p&gt;<br>&nbsp;&nbsp;&lt;/body&gt;<br>&lt;html&gt;</pre>
+				</div>
+				
+				<div class="htmlInfo fade" id="slide9">
+					<div class="tags">
+						<h1 class="tag">&lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, &lt;h4&gt;, &lt;h5&gt;, and &lt;h6&gt;</h1>
+						<h4 class="tagInfo"><br>These tags represent, respectively, primary, secondary, tertiary, quaternary, quinary, and/or senary headings. Depending on what you need, the purposes of each will become obvious. The tier of heading also determines the font weight (boldness), size, and thus, how much it will stand out.</h4>
+					</div>
+					<pre class="pre-scrollable">&lt;html&gt;<br>&nbsp;&nbsp;&lt;head&gt;...&lt;/head&gt;<br>&nbsp;&nbsp;&lt;body&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;I am a Heading 1&lt;/h1&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;I am a Heading 2&lt;/h2&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;h3&gt;I am a Heading 3&lt;/h3&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;h4&gt;I am a Heading 4&lt;/h4&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;h5&gt;I am a Heading 5&lt;/h5&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;h6&gt;I am a Heading 6&lt;/h6&gt;<br>&nbsp;&nbsp;&lt;/body&gt;<br>&lt;html&gt;</pre>
+				</div>
+				
+				<div class="htmlInfo fade" id="slide10">
+					<div class="tags">
+						<h1 class="tag">&lt;p&gt;</h1>
+						<h4 class="tagInfo"><br>This tag will typically form the basis of your website. The <code>&lt;p&gt;</code> tag is for the creation of paragraphs, hence its name the 'p' tag.</h4>
+					</div>
+					<pre class="pre-scrollable">&lt;html&gt;<br>&nbsp;&nbsp;&lt;head&gt;...&lt;/head&gt;<br>&nbsp;&nbsp;&lt;body&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;I am a paragraph&lt;/p&gt;<br>&nbsp;&nbsp;&lt;/body&gt;<br>&lt;html&gt;</pre>
+				</div>
+				
+				<div class="htmlInfo fade" id="slide11">
+					<div class="tags">
+						<h1 class="tag">&lt;em&gt;, &lt;u&gt;, and &lt;strong&gt;</h1>
+						<h4 class="tagInfo"><br>These are styling tags that are inserted within a text tag, e.g. <code>&lt;h1&gt;</code> or <code>&lt;p&gt;</code>. <code>&lt;em&gt;</code> is used to put emphasis on a tag through italics and slight bolding. <code>&lt;u&gt;</code> puts and underline under the text it encloses, and <code>&lt;strong&gt;</code> makes the text bold.</h4>
+					</div>
+					<pre class="pre-scrollable">&lt;html&gt;<br>&nbsp;&nbsp;&lt;head&gt;...&lt;/head&gt;<br>&nbsp;&nbsp;&lt;body&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;em&gt;I am emphasised&lt;/em&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;u&gt;I am underlined&lt;/u&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;strong&gt;I am bold or strong&lt;/bold&gt;<br>&nbsp;&nbsp;&lt;/body&gt;<br>&lt;html&gt;</pre>
+				</div>
+				
+				<div class="htmlInfo fade" id="slide12">
+					<div class="tags">
+						<h1 class="tag">&lt;ol&gt; and &lt;ul&gt;</h1>
+						<h4 class="tagInfo"><br>Lists are a part of website creation that is extremely important. Not only are they for normal lists, they can also be used for creating navbars and many other web elements. You can have 2 types of lists. <code>&lt;ul&gt;</code> stands for unordered list. In an unordered list the contents are displayed as bullet points. <code>&lt;ol&gt;</code> stands for ordered list. In an ordered list the contents are automatically ordered. In any list (&lt;ol&gt; or &lt;ul&gt;) you have to use the <code>&lt;li&gt;</code> tag. Each <code>&lt;li&gt;</code> tag represents a new bullet point.</h4>
+					</div>
+					<pre class="pre-scrollable">&lt;html&gt;<br>&nbsp;&nbsp;&lt;head&gt;...&lt;/head&gt;<br>&nbsp;&nbsp;&lt;body&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;ol&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;I am an ordered list item&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ol&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;ul&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;I am an unordered list item&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br>&nbsp;&nbsp;&lt;/body&gt;<br>&lt;html&gt;</pre>
+				</div>
+
+				<div class="htmlInfo fade" id="slide13">
+					<div class="tags">
+						<h1 class="tag">&lt;img&gt;</h1>
+						<h5 class="tagInfo"><br>Images are a fundamental aspect of making an attractive webpage. Images are able to represent what you would like to say, and as the saying goes: “a picture can tell a thousand words”. To insert an image in your webpage, you must use the <code>&lt;img&gt;</code> tag, and as it is an inline element, it must be enclosed within another tag. Within this tag you will have a src attribute and an alt attribute. The src attribute is what tells the server where to find the image. The alt attribute tells the server what to replace the image with if the users browser cannot load up the image. The alt attribute also provides the browser with a desciption of the picture for accessibility reasons.</h5>
+					</div>
+					<pre class="pre-scrollable">&lt;html&gt;<br>&nbsp;&nbsp;&lt;head&gt;...&lt;/head&gt;<br>&nbsp;&nbsp;&lt;body&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="YOUR/IMAGE.jpg" alt="This is your image description..."&gt;<br>&nbsp;&nbsp;&lt;/body&gt;<br>&lt;html&gt;</pre>
+				</div>
+
+				<div class="htmlInfo fade" id="slide14">
+					<div class="tags">
+						<h1 class="tag">&lt;table&gt;</h1>
+						<h6 class="tagInfo"><br>Tables are very good for presenting data in an easily comparable, and viewable way. You can create a table in your HTML file by using the <code>&lt;table&gt;</code> tag. Within a table you need to put content. To place in content within the table, you will need 3 tags, <code>&lt;tr&gt;</code>, <code>&lt;th&gt;</code>, <code>&lt;td&gt;</code>. <code>&lt;th&gt;</code> stand for Table Heading, and as you can tell from the name, it creates a new table heading for a column. In your html file all the <code>&lt;th&gt;</code> elements are listed one after each other. <code>&lt;tr&gt;</code> stands for Table Row, it adds a new row in the table. Lastly, <code>&lt;td&gt;</code> stands for Table Data. The <code>&lt;td&gt;</code> element makes sure all the cells are in different columns but in the same row. However, in some contexts or situations you may need to create a table where a cell occupies 2 or more rows, or 2 or more columns; this is where the attributes (of the <code>&lt;td&gt;</code>) <code>rowspan</code> and <code>colspan</code>come in. By adding the attribute <code>rowspan="2"</code> or <code>colspan="2"</code>a cell will either occupy its own cell and the cell below, or its own cell and the cell to its right, respectively.</h6>
+					</div>
+					<pre class="pre-scrollable">&lt;html&gt;<br>&nbsp;&nbsp;&lt;head&gt;...&lt;/head&gt;<br>&nbsp;&nbsp;&lt;body&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;table&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt; &lt;!--This is a table row--&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;I am a table heading&lt;/th&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;I am table data cell&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>&nbsp;&nbsp;&lt;/body&gt;<br>&lt;html&gt;</pre>
+				</div>
+
+				<div class="htmlInfo fade" id="slide15">
+					<div class="tags">
+						<h1 class="tag">&lt;br&gt;</h1>
+						<h4 class="tagInfo"><br>This tag essentially creates a linebreak in your page. Being and inline element, it must be placed within other elements, e.g. <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code>, etc..</h4>
+					</div>
+					<pre class="pre-scrollable">&lt;html&gt;<br>&nbsp;&nbsp;&lt;head&gt;...&lt;/head&gt;<br>&nbsp;&nbsp;&lt;body&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hello! This is my &lt;br&gt; linebroken paragraph.&lt;/p&gt;<br>&nbsp;&nbsp;&lt;/body&gt;<br>&lt;html&gt;</pre>
+				</div>
+
+				<div class="htmlInfo fade" id="slide16">
+					<div class="tags">
+						<h1 class="tag">&lt;div&gt;</h1>
+						<h4 class="tagInfo"><br>This is probably the most important tag that you will EVER learn about. This tag essential creates a section of your webpage and marks it as your own. It is most often used to enclose many other similar elements that are in a section of your webpage, or parts that are in the same area. The use of a <code>&lt;div&gt;</code> will become apparent when learning CSS.</h4>
+					</div>
+					<pre class="pre-scrollable">&lt;html&gt;<br>&nbsp;&nbsp;&lt;head&gt;...&lt;/head&gt;<br>&nbsp;&nbsp;&lt;body&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;I am a primary heading enclosed by a div&lt;/h1&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;I am a paragraph enclosed by a div&lt;/p&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>&nbsp;&nbsp;&lt;/body&gt;<br>&lt;html&gt;</pre>
+				</div>
+
+				<div class="htmlInfo fade" id="slide17">
+					<h1 id="MPWtitle">Multi-page Websites</h1>
+				</div>
+
+				<div class="htmlInfo fade" id="slide18">
+					<div class="tags">
+						<h1 class="tag">Linking</h1>
+						<h5 class="tagInfo"><br>It is important to create a multi-page website so that your viewers can easily get to the information they want to read instead of having to scroll through the entire page! To create a multi-page website you must create links from which the user can go to the next page. The tag that you use to create a link is the <code>&lt;a&gt;</code> tag. Within the it, you need to specify an attribute: 'href'. This attribute is basically the route directions for the browser which tells it where to find the file that is being linked. When using the href attribute we use relative linking. Your link should look like this in your code if your are linking to a webpage about choc-chip cookies.</h5>
+					</div>
+					<pre class="pre-scrollable">&lt;html&gt;<br>&nbsp;&nbsp;&lt;head&gt;...&lt;/head&gt;<br>&nbsp;&nbsp;&lt;body&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We all love &lt;a href="cookie.html"&gt;choc-chip cookies!&lt;/a&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;<br>&nbsp;&nbsp;&lt;/body&gt;<br>&lt;html&gt;</pre>
+				</div>
+
+				<div class="htmlInfo fade" id="slide19">
+					<h1 id="FOtitle">File organisation</h1>
+				</div>
+
+				<div class="htmlInfo fade" id="slide20">
+					<div class="tags">
+						<h1 class="tag">Keeping eveything neat</h1>
+						<h5 class="tagInfo"><br>As you start building larger and larger webpages, it is quite likely that the organisation and tidiness of your web domain, or web page 'folder' may have become minimal. However, it is important to organise files, media, and resources so that you can easily tell your HTML where to find the desired item, easily and logically. If you have organised your files, when telling your HTML where to find the image or video or file you use relative linking. Relative linking tells your browser whether to go in or out of files to find something.  A ‘/’ tells it to go in a folder, and a ‘../’ tells it to go out of a folder. Say, for example, we are on a webpage about cars, however, we want to step out of the car folder and look at some planes... we can!</h5>
+					</div>
+					<pre class="pre-scrollable">&lt;html&gt;<br>&nbsp;&nbsp;&lt;head&gt;...&lt;/head&gt;<br>&nbsp;&nbsp;&lt;body&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="Porsche/918.html"&gt;Porsche 918&lt;/a&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="../Planes/Boeing/787.html"&gt;Boeing 787 Dreamliner&lt;/a&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;<br>&nbsp;&nbsp;&lt;/body&gt;<br>&lt;html&gt;</pre>
+				</div>
+				
+				<div class="htmlInfo fade" id="slide21">
+					<h1 id="Vtitle">'Validation'</h1>
+				</div>
+
+				<div class="htmlInfo fade" id="slide22">
+					<div class="tags">
+						<h1 class="tag">Ensuring reliability across (almost) all platforms</h1>
+						<h5 class="tagInfo"><br>It is important to make sure your website will work on all browsers. A quick and easy way to check is to use a HTML validator. Essentially, this service scans through the code to ensure that no errors were committed in your code. You can make sure your website is XHTML 1.0 Strict or HTML5 by going to <a href="http://validator.w3.org">http://validator.w3.org</a> and pasting the URL of your webpage and clicking check. Upon applying the suggested changes, revalidate your website, and voila! Your website should be offically support across all browsers.</h5>
+					</div>
+					<pre class="pre-scrollable">&lt;html&gt;<br>&nbsp;&nbsp;&lt;head&gt;...&lt;/head&gt;<br>&nbsp;&nbsp;&lt;body&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="Porsche/918.html"&gt;Porsche 918&lt;/a&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="../Planes/Boeing/787.html"&gt;Boeing 787 Dreamliner&lt;/a&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;<br>&nbsp;&nbsp;&lt;/body&gt;<br>&lt;html&gt;</pre>
+				</div>
+				
+				<div class="htmlInfo fade" id="slide23">
+					<h1 class="HTMLFinish">Congratulations!</h1>
+					<h2 class="HTMLFinish">You have officially learnt some awesome HTML! Try put it to use in our 'Web-Pad'!</h2>
+					<h3 class="HTMLFinish">You are fit to move on to the CSS course now!&nbsp;&nbsp;<a class="fas fa-angle-right animated infinite slideInLeft" id="ToCSS" href="../css_page/css.html"></a></h3>
+					<h4 class="HTMLFinish">Share this milestone with friends!</h4>
+					<br>
+					<div id="share" class="a2a_kit a2a_kit_size_32 a2a_default_style">
+						<a class="a2a_button_facebook"></a>
+						<a class="a2a_button_twitter"></a>
+					</div>
+					<script async src="https://static.addtoany.com/menu/page.js"></script>
+					
+				</div>
+				
+				<a class="prev fas fa-angle-left" onclick="plusSlides(-1)"></a>
+				<a class="next fas fa-angle-right" onclick="plusSlides(1)"></a>
+			</div>
+			<br>
+
+	  <!-- The dots/circles -->
+			<div style="text-align:center">
+				<span class="far fa-dot-circle notactive" onclick="currentSlide(1)"></span> 
+				<span class="far fa-dot-circle notactive" onclick="currentSlide(2)"></span> 
+				<span class="far fa-dot-circle notactive" onclick="currentSlide(3)"></span>
+				<span class="far fa-dot-circle notactive" onclick="currentSlide(4)"></span>
+				<span class="far fa-dot-circle notactive" onclick="currentSlide(5)"></span>
+				<span class="far fa-dot-circle notactive" onclick="currentSlide(6)"></span>
+				<span class="far fa-dot-circle notactive" onclick="currentSlide(7)"></span>
+				<span class="far fa-dot-circle notactive" onclick="currentSlide(8)"></span>
+				<span class="far fa-dot-circle notactive" onclick="currentSlide(9)"></span>
+				<span class="far fa-dot-circle notactive" onclick="currentSlide(10)"></span>
+				<span class="far fa-dot-circle notactive" onclick="currentSlide(11)"></span>
+				<span class="far fa-dot-circle notactive" onclick="currentSlide(12)"></span>
+				<span class="far fa-dot-circle notactive" onclick="currentSlide(13)"></span>
+				<span class="far fa-dot-circle notactive" onclick="currentSlide(14)"></span>
+				<span class="far fa-dot-circle notactive" onclick="currentSlide(15)"></span>
+				<span class="far fa-dot-circle notactive" onclick="currentSlide(16)"></span>
+				<span class="far fa-dot-circle notactive" onclick="currentSlide(17)"></span>
+				<span class="far fa-dot-circle notactive" onclick="currentSlide(18)"></span>
+				<span class="far fa-dot-circle notactive" onclick="currentSlide(19)"></span>
+				<span class="far fa-dot-circle notactive" onclick="currentSlide(20)"></span>
+				<span class="far fa-dot-circle notactive" onclick="currentSlide(21)"></span>
+				<span class="far fa-dot-circle notactive" onclick="currentSlide(22)"></span>
+				<span class="far fa-dot-circle notactive" onclick="currentSlide(23)"></span>
+			</div>
+		</div>
+		<script src="slideshow.js"></script>
+		
+		<div id="footer">
+			<a class="w3-fifth footerLink" href="../index.html">Home</a>
+			<a class="w3-fifth footerLink" href="#">Learn HTML</a>
+			<a class="w3-fifth footerLink" href="../css_page/css.html">Learn CSS</a>
+			<a class="w3-fifth footerLink" href="../challenge_page/challenge.html">Challenge</a>
+			<a class="w3-fifth footerLink" href="../creationPad_page/creationPad.html">Creation Pad!</a>
+			<br>
+			<div class="footerInfo">
+				<p class="noMargin"><br><b>Contact Us!</b><br><a href="mailTo:Arjun.Sharma@cgs.act.edu.au">Arjun.Sharma@cgs.act.edu.au</a> or <a href="mailTo:Sachin.Panagoda@cgs.act.edu.au">Sachin.Panagoda@cgs.act.edu.au</a></p>
+				<p class="noMargin">&copy; 2018 How to HTML (and CSS) Ltd.</p>
+			</div>
+		</div>
+		
+	</body>
+</html>

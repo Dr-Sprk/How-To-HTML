@@ -1,0 +1,126 @@
+<!-- This Web-Based HTML editor is based of Todd Wilson's web editor, however, a few modifications were made to facilitate the use in my website. A version has also been used on the HTML learning page. As such, I do not take complete credit for this product-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+    	<title>Web Editor</title>
+    	<link rel="stylesheet" href="../css/w3.css">
+		<link href="https://fonts.googleapis.com/css?family=Anonymous+Pro" rel="stylesheet">
+		<style>
+			.outline {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				bottom: 0px;
+				right: 0px;
+				overflow: hidden;
+				padding: 0;
+				margin: 0;
+			}
+
+			.myTabs {
+				position: absolute;
+				top: 40px;
+				bottom: 0;
+				width: 100%;
+				padding: 0;
+				margin: 0;
+				overflow: hidden;
+				border: 0;
+			}
+
+			.content {
+				position: absolute;
+				padding: 5px;
+				margin: 0;
+				top: 0;
+				left: 0;
+				height: 100%;
+				width: 100%;
+				overflow: auto;
+				border: 0;
+				font-family: "Anonymous Pro", Courier, monospace;
+				font-style: normal;
+				font-weight: normal;
+				font-size: 10pt;
+				line-height: normal;
+			}
+
+			iframe {
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100%;
+				width: 100%;
+				overflow: auto;
+				border: 0;
+			}
+			[contentEditable=true]:empty:not(:focus):before{
+				content:attr(data-text);
+			}
+
+		</style>
+	</head>
+	<body>
+		<div class="htmleditor">
+			<div class="w3-border outline">
+				<div class="w3-bar w3-border-bottom w3-light-grey intronav myButtons">
+					<button class="w3-bar-item w3-button tablink1 w3-red" onclick="openTab(event, 'thtml1')">HTML</button>
+					<button class="w3-bar-item w3-button tablink1" onclick="openTab(event, 'tcss1')">CSS</button>
+					<button class="w3-bar-item w3-button tablink1" onclick="openTab(event, 'toutput1')">Preview</button>
+				</div>
+				<div class="myTabs">
+					<div class="editor1" id="thtml1">
+						<div id="html1" class="content" contenteditable="true" data-text="&lt;!--Start typing your HTML code here!--&gt;"></div>
+					</div>
+					<div class="editor1" id="tcss1" style="display: none">
+						<div id="css1" class="content" contenteditable="true" data-text="/*Start typing your CSS code here!*/"></div>
+					</div>
+					<div class="editor1" id="toutput1" style="display: none">
+						<iframe id="output1"></iframe>
+					</div>
+				</div>
+			</div>
+			<script>
+				function openTab(evt, tabName1) {
+					var i, x, tablinks;
+
+					x = document.getElementsByClassName("editor1");
+					for (i = 0; i < x.length; i++) {
+						x[i].style.display = "none";
+					}
+
+					tablinks = document.getElementsByClassName("tablink1");
+					for (i = 0; i < x.length; i++) {
+						tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+					}
+
+					document.getElementById(tabName1).style.display = "block";
+					evt.currentTarget.className += " w3-red";
+				}
+
+				window.onload = function () {
+					var html = document.getElementById("html1"),
+						css = document.getElementById("css1"),
+						output = document.getElementById("output1"),
+						working = false,
+						fill = function () {
+							if (working) {
+								return false;
+							}
+							working = true;
+							var document = output.contentDocument,
+								style = document.createElement("style");
+							document.body.innerHTML = html.textContent;
+							style.innerHTML = css.textContent.replace(/\s/g, "");
+							document.body.appendChild(style);
+							working = false;
+						};
+					html.onkeyup = fill;
+					css.onkeyup = fill;
+				}
+			</script>
+		</div>
+	</body>
+</html>
+

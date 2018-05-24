@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="../css/w3.css">
+		<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Anonymous+Pro" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css.css">
+		<link type="text/css" rel="stylesheet" href="../css/css/fontawesome-all.css">
+		<link type="text/css" rel="stylesheet" href="../css/animate.css">
+		<link rel="icon" href="../images/coding.png" type="image/png" sizes="16x16">
+		<title>How to HTML - CSS Learning</title>
+	</head>
+	<body>
+		
+		<ul id="navbar">
+			<li><a class="logo" href="../index.html"><img src="../images/coding.png" id="logo" alt="logo"></a></li>
+			<li><a href="../index.html">Home</a></li>
+			<li><a href="../html_page/html.html">HTML</a></li>
+			<li><a class="active" href="#">CSS</a></li>
+			<li><a href="../challenge_page/challenge.html">Challenge</a></li>
+			<li><a href="../creationPad_page/creationPad.html">Creation Pad</a></li>
+		</ul>
+
+		<div id="introLabel">
+			<h1 id="introtext">Learning CSS</h1>
+		</div>
+		<script src="slideUp.js"></script>
+		<button class="fas fa-angle-down animated infinite pulse" id="down-arrow" onclick="slideUp()"></button>	
+		
+		<div id="content">
+			<div class="w3-row">
+				<a onclick="openTab(event, 'CSShome');">
+				  <div class="w3-quarter tablink w3-bottombar w3-hover-light-grey w3-padding">CSS Home</div>
+				</a>
+				<a onclick="openTab(event, 'Containers');">
+				  <div class="w3-quarter tablink w3-bottombar w3-hover-light-grey w3-padding">Containers</div>
+				</a>
+				<a onclick="openTab(event, 'Identifiers');">
+				  <div class="w3-quarter tablink w3-bottombar w3-hover-light-grey w3-padding">Identifiers</div>
+				</a>
+				<a onclick="openTab(event, 'CCST');">
+				  <div class="w3-quarter tablink w3-bottombar w3-hover-light-grey w3-padding">Common CSS Style Tags</div>
+				</a>
+			  </div>
+
+			  <div id="CSShome" class="w3-container tab" style="display:none">
+				<div id="homeContent" class="w3-half">
+				  <h2>Learning CSS</h2>
+				  <p>You have already learnt a little bit about CSS, however, here you will learn most of the key concepts to get all your websites looking slick. As mentioned earlier, CSS allows you to personalise your webpage, entirely!<br>Coding in CSS has slightly different syntax (code construction), and can be used in conjunction with HTML in 3 ways:</p>
+					<ol>
+						<li>
+							Inline: Using a style attribute in the HTML tag itself<br><pre class="pre-scrollable">&lt;html&gt;<br>&nbsp;&nbsp;&lt;head&gt;...&lt;/head&gt;<br>&nbsp;&nbsp;&lt;body&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;p style="property:value;"&gt;&lt;/p&gt;<br>&nbsp;&nbsp;&lt;/body&gt;<br>&lt;/html&gt;</pre>
+						</li>
+						<li>
+							Internal: By using the style tag within the head<br><pre class="pre-scrollable">&lt;html&gt;
+  &lt;head&gt;
+    &lt;style&gt;
+	  element {
+	    property: value;
+	  }
+	&lt;/style&gt;
+  &lt;/head&gt;<br>&nbsp;&nbsp;&lt;body&gt;...&lt;/body&gt;<br>&lt;/html&gt;</pre>
+						</li>
+						<li>
+							External: By linking to an external css file<pre class="pre-scrollable">&lt;!-- This is the HTML File --&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;link type="text/css" rel="stylesheet" href="YourStyleSheet.css"&gt;
+	&lt;/style&gt;
+  &lt;/head&gt;<br>&nbsp;&nbsp;&lt;body&gt;...&lt;/body&gt;<br>&lt;/html&gt;
+
+/* This is the CSS file named YourStyleSheet.css (which is in the same folder)
+element {
+  property: value;
+}</pre>
+						</li>
+					</ol>
+
+				</div>
+				<iframe class="w3-half editor" src="../creationPad_page/htmleditor.html"></iframe>
+			  </div>
+
+			  <div id="Containers" class="w3-container tab" style="display:none">
+				<div class="w3-half">
+				  <h2>Container Tags: Divs and Spans</h2>
+				  <p>The <code>&lt;div></code> tag is a block element (an element that cannot be enclosed by another tag, aside from the body), used when you want to customise a certain section of your website. In order for your web browser to identify what content to change, the <code>&lt;div></code> encapsulates content and essentially (div)ides it into sections. When in your CSS file, for now, you can represent the <code>&lt;div></code> by simply typing in the tag: div. This is, sometimes, a useful feature, however, once you get to the 'Identifiers' lesson, you will find flaws with this method. After that you can then put in any attributes you like to make that div look the way you would like it to.</p><pre class="pre-scrollable">
+div {
+  attribute: value;
+}</pre><p>You can also use any of the other ways of embedding/using CSS.<br>The <code>&lt;span></code> tag serves the same purpose as the <code>&lt;div></code> tag however it is an inline element (an element that sits happily within other elements). Using the span tag is identical to using the <code>&lt;div></code> tag. Keep experimenting using the editor on the right hand side.</p>
+				  
+				</div>
+				<iframe class="w3-half editor" src="../creationPad_page/htmleditor.html"></iframe>
+			  </div>
+			
+			  <div id="Identifiers" class="w3-container tab" style="display:none">
+				<div class="w3-half">
+				  <h2>Classes and IDs</h2>
+				<p>We use the HTML tag attributes <code>id</code> and <code>class</code> refer specifically to a given element, or to a group of elements that may share the same styling. It is important to use classes and ids to show your browser where to find specific content when trying to make your website shine. </p>
+				<h3>How do I know whether to use a class or an ID?</h3>
+				<p>Classes are usually used when you are syling a group of elements. For example, let's say that you want all the paragraphs on your webpage, about dogs, to be green and underlined. Instead of individually going and giving each paragraph that styling scheme, you can simply add <code>class="DOGS"</code> to the paragraphs, and write your styling by refering to the class 'DOGS'. However, if you are styling one element exclusively, then it would be more appropriate to use an ID, as IDs are designed to be used for only one element. If you try using mulitple IDs with the same name, your website will probably glitch, and will not validate.</p>
+				  <h3>So, how do I use them?</h3>
+				  <p>Essentially, to add an HTML element to a <b>CLASS</b>, you must add the attribute 'class' to the tag, e.g. <code>&lt;p class="banana">BANANA!! :)&lt;p></code>. To then refer to a class in the CSS document by putting a full stop, and then (with no space) typing in the class name.</p><pre class="pre-scrollable">
+.Banana {
+  color: yellow;
+}
+</pre>
+				  <p>To define an HTML element as an <b>ID</b>, you are required to add the 'id' attribute, as done in the class example, e.g. <code>&lt;p id="apple">APPLE!! :P&lt;p></code>. Referring to an ID is similar to a class, however, instead of using a period or full stop, a hash or '#' is to be used.</p><pre class="pre-scrollable">
+.apple {
+  color: red;
+}
+</pre>
+				  </div>
+				  <iframe class="w3-half editor" src="../creationPad_page/htmleditor.html"></iframe>
+			  </div>
+			
+			  <div id="CCST" class="w3-container tab" style="display:none">
+				<div class="w3-half">	
+				  	<h2>Common CSS Properties</h2>
+					<p>There are a few extremely common CSS properties that you will almost always use when making your page attractive to the viewer. These elements are colour, border, font, margin, and background.</p>
+					<h3>'Color'</h3>
+					<p>The 'colour' propety is used to change the colour of text. You can reference colours by typing in their normal english name, e.g. 'yellow' or if you want to be more specific you can refernce a colour using its hex code or the standard rgb balance. <b>REMEMBER that colour is spelt using the American spelling and therefore it is spelt ‘color’.</b></p><pre class="pre-scrollable">
+div {
+  color: yellow;
+  color: #FFFF00;
+  color: rgb(255, 255, 0)
+}</pre>
+					<h3>'Border-...'</h3>	
+					<p>The border represents the outside boundary of the website or selected element. You can alter and modify the border width, colour, and style. The 10 different border-styles are dotted, dashed, solid, double, groove, ridge, inset, outset, none, and hidden.</p><pre class="pre-scrollable">
+div {
+  border-style: dashed;
+  border-width: 3px;
+  border-color: purple;
+}</pre>
+					<h3>'Font-family'</h3>
+					<p>Different fonts are used to make your text look interesting and change depending on the situation you are using them in. You can change font size, which is measured in ‘px’ (pixels). To change the font in your CSS file you would must use the 'font-family' property.  Different fonts have different font families. These font families are used to help the browser find the correct font. If you are feeling fancy, you can use a special CSS function called <code>@font-face</code>. This is used when you want to use a custom font from the internet, or one that you have downloaded. Within <code>@font-face</code>, there are 2 properties you need to know, 'font-family' (this sets up the name you will use for the font), and 'src' (where you can retrieve the font file from to use it).</p><pre class="pre-scrollable">
+div {
+  font-family: Helvetica, sans-serif;
+}
+		
+@font-face {
+  font-family: Custom;
+  src: url('YOURFONT.ttf')
+}
+		
+div.2 {
+  font-family: Custom, sans-serif;
+}</pre>
+					<h3>'margin' and 'align'</h3>					
+					<p>The margin and align properties in CSS will prove to be very useful in the positioning of elements on your webpage. For margin, there are 2 main value forms, percentages and pixels. There is another form of measurement, however, that can become complicated very quickly. If you are interested, search 'Viewport Measurement HTML'. Align; typically, the most used property using align is 'text-align'. Handy when trying to present information nicely.</p><pre class="pre-scrollable">
+div {
+  margin-left: 47%;
+  text-align: center;
+}</pre>
+					<h3>'background-...'</h3>		
+					<p>The default colour for the background is white, however you can change the colour of the background to make your page more attractive. These 5 elements are essential if you want to make your website unique. You can even change your background to an image!</p><pre class="pre-scrollable">
+/*Whole page background*/
+html {
+  background-color: blue;
+}
+
+/* Div-specific background*/
+div {
+  background-image: url('YOURIMAGE.jpg');
+}</pre>
+				</div>
+				<iframe class="w3-half editor" src="../creationPad_page/htmleditor.html"></iframe>
+			  </div>
+			<script src="pageswitcher.js"></script>
+		</div>
+		<div id="footer">
+			<a class="w3-fifth footerLink" href="../index.html">Home</a>
+			<a class="w3-fifth footerLink" href="../html_page/html.html">Learn HTML</a>
+			<a class="w3-fifth footerLink" href="#">Learn CSS</a>
+			<a class="w3-fifth footerLink" href="../challenge_page/challenge.html">Challenge</a>
+			<a class="w3-fifth footerLink" href="../creationPad_page/creationPad.html">Creation Pad!</a>
+			<br>
+			<div class="footerInfo">
+				<p class="noMargin"><br><b>Contact Us!</b><br><a href="mailTo:Arjun.Sharma@cgs.act.edu.au">Arjun.Sharma@cgs.act.edu.au</a> or <a href="mailTo:Sachin.Panagoda@cgs.act.edu.au">Sachin.Panagoda@cgs.act.edu.au</a></p>
+				<p class="noMargin">&copy; 2018 How to HTML (and CSS) Ltd.</p>
+			</div>
+		</div>
+	</body>
+</html>

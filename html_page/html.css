@@ -1,0 +1,439 @@
+h1, h2, h3, h4, h5, h6, p, li, button {
+	font-family: 'Quicksand', sans-serif;
+	color: rgb(122, 122, 122);
+}
+
+html {
+	background-image: url("../images/HTML_Page_Background.jpg");
+	background-repeat: round;
+	width: 100%;
+	height: 100%;
+	background-attachment: fixed;
+}
+
+body {
+	margin: 0px !important; 
+}
+
+
+#navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0);
+    position: fixed;
+	top: 0vh;
+	z-index: 5;
+}
+
+#navbar li {
+    float: left;
+}
+
+#navbar li a:not(.active):not(.logo) {
+    display: block;
+    color: rgb(242, 62, 62);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+	font-weight: bold;
+	background-color: rgba(173, 171, 171, 0.5);
+}
+
+.active {
+    display: block;
+	background-color: rgba(242, 62, 62, 0.7);
+	color: white;
+	text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#navbar li a:hover:not(.logo) {
+    background-color: #111;
+	color: white;
+}
+
+.logo {
+	background-color: rgba(0, 0, 0, 0);
+	display: block;
+	padding: 14px 16px;
+}
+
+#background {
+	background-repeat: round;
+	background-image: url("../images/HTML_Page_Background.jpg");
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: 1;
+}
+
+#introLabel {
+	position: absolute;
+	text-align: center;
+	background-color: rgb(242, 62, 62); 
+    background-color: rgba(242, 62, 62, 0.7);
+	top: 42.5vh;
+	width: 60%;
+	margin-left: 20%;
+}
+
+#introtext {
+	color: white;
+}
+
+#down-arrow {
+	margin-left: 47.5%;
+	margin-top: 40%;
+	font-size: 350%;
+	color: rgb(244, 244, 244);
+	text-decoration: none;
+	z-index: 10;
+	cursor: pointer;
+	background-color: rgba(0, 0, 0, 0);
+	border-style: none;
+}
+
+
+
+/*CSS for the Slideshow*/
+
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+  margin-top: 20%;
+}
+
+/* Hide the images by default */
+.mySlides {
+    display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: rgba(242, 62, 62, 0.6);
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+  color: white
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.notactive {
+  cursor: pointer;
+  transition: color 1s ease;
+  color: white;
+}
+
+.notactive:hover {
+  color: rgb(242, 62, 62);
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+.slideshow {
+	position: relative;
+	margin-top: 17.5%;
+	padding-bottom: 3%;
+}
+
+.htmlInfo {
+	border-radius: 10px;
+	background-color: rgba(239, 239, 239, 0.7);
+	height: 75vh;
+}
+
+.outline {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	bottom: 20px;
+	right: 20px;
+	overflow: hidden;
+	padding: 0;
+	margin-left: 50%;
+}
+
+.myTabs {
+	position: absolute;
+	top: 40px;
+	bottom: 0;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	border: 0;
+}
+
+.content {
+	position: absolute;
+	padding: 5px;
+	margin: 0;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	border: 0;
+	font-family: "Anonymous Pro", Courier, monospace;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 10pt;
+	line-height: normal;
+}
+
+iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	border: 0;
+}
+[contentEditable=true]:empty:not(:focus):before{
+	content:attr(data-text);
+}
+
+#title {
+	position: relative;
+	text-align: center;
+	top: 46%;
+	color: white;
+}
+
+#slide1 {
+	background-image: url("https://static.makeuseof.com/wp-content/uploads/2017/12/test-html-online-670x335.jpg");
+	background-repeat: round;
+	background-size: 100% 100%;
+}
+
+#CYFWTitle {
+	position: relative;
+	text-align: center;
+	top: 46%;
+}
+
+code {
+	color: red;
+	background-color: white;
+	border-radius: 5px;
+	padding: 0.3%;
+	font-family: "Anonymous Pro", monospace;
+	font-size: 15px;
+}
+
+#CYFWinfo {
+	padding-left: 20px;
+	padding-top: 1px;
+	margin-right: 50%;
+	vertical-align: middle;
+}
+
+.htmleditor {
+	margin-left: 52.5%;
+}
+
+#slide4 {
+	background-color: rgba(242, 62, 62, 0.7);
+	text-align: center;
+}
+
+#CHTtitle {
+	position: relative;
+	top: 46%;
+	color: white;
+}
+
+#CHToverview {
+	text-align: center;
+	position: relative;
+	top: 41%;
+	width: 90%;
+	margin-left: 4.75%;
+}
+
+#slide6 {
+	background-image: url("http://pi.cs.oswego.edu/~tcalhoun/coursework/isc496/07/htmltag.png");
+	background-repeat: round;
+}
+
+.tags {
+	margin-right: 52.5%;
+	padding-left: 5%;
+	padding-top: 3%;
+}
+
+.tag {
+	text-align: center;
+	padding: 10px;
+	padding-top: 5%;
+	font-weight: 600; 
+	vertical-align: middle;
+}
+
+.pre-scrollable {
+	position: absolute;
+	max-height:300px;
+	overflow-y: scroll;
+	overflow-x: scroll;
+	color: red;
+	background-color: white;
+	border-radius: 5px;
+	font-family: "Anonymous Pro", monospace;
+	font-size: 15px;
+	margin-left: 52.5%;
+	height: 100%;
+	width: 41.5%;
+	top: 25%;
+	padding: 5px;
+}
+
+#MPWtitle {
+	position: relative;
+	color: white;
+	top: 46%;
+}
+
+#slide17 {
+	text-align: center;
+	background-color: rgba(242, 62, 62, 0.7);
+}
+
+#FOtitle {
+	position: relative;
+	color: white;
+	top: 46%;
+}
+
+#slide19 {
+	text-align: center;
+	background-color: rgba(242, 62, 62, 0.7);
+}
+
+#Vtitle {
+	position: relative;
+	color: white;
+	top: 46%;
+}
+
+#slide21 {
+	text-align: center;
+	background-color: rgba(242, 62, 62, 0.7);
+}
+
+.HTMLFinish {
+	position: relative;
+	color: white;
+	top: 27.5%;
+	width: 90%;
+	margin-left: 5%;
+	
+}
+
+#slide23 {
+	text-align: center;
+	background-color: rgba(163, 255, 71, 0.7);
+	color: white;
+}
+
+#share {
+	position: relative;
+	top: 23%;
+	margin-left: 46%;
+}
+
+#ToCSS {
+	text-decoration: none;
+}
+
+#logo {
+	width: 20px;
+	height: 20px;
+}
+
+#footer {
+	background-color: rgb(255, 113, 113);
+	position: relative;
+	margin-top: 10%;
+	width: 100%;
+	height: 30%
+}
+
+.w3-fifth {
+	float: left;
+	width: 100%;
+	width: 19.99999%;
+	text-align: center;
+}
+
+.footerLink {
+	color: white;
+	padding-top: 3%
+}
+
+.footerInfo {
+	margin-top: 5%;
+	color: white !important;
+	text-align: center;
+	width: 100%;
+	margin-right: 0px !important;
+	margin-bottom: 3%;
+}
+
+.noMargin {
+	margin-left: 0px !important;
+	margin-right: 0px !important;
+	color: white;
+}
